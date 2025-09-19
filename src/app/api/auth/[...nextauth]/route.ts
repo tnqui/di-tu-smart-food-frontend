@@ -1,9 +1,12 @@
 import NextAuth, {NextAuthOptions} from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
+const BASE_URL = process.env.DOMAIN;
+
 async function refreshAccessToken(token: any) {
+
     try {
-        const res = await fetch("http://localhost:8080/auth/refresh", {
+        const res = await fetch(`${BASE_URL}/auth/refresh`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({refreshToken: token.refreshToken})
@@ -39,7 +42,7 @@ export const authOptions: NextAuthOptions = {
                 if (!credentials?.identifier || !credentials?.password) return null
 
                 try {
-                    const res = await fetch("http://localhost:8080/auth/login", {
+                    const res = await fetch(`${BASE_URL}/auth/login`, {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({
@@ -90,7 +93,7 @@ export const authOptions: NextAuthOptions = {
 
             return await refreshAccessToken(token)
         },
-        async session({ session, token }) {
+        async session({session, token}) {
             if (token) {
                 session.user.id = token.sub as string
                 session.user.email = token.email as string

@@ -1,4 +1,3 @@
-import {Category} from "@/types/types";
 import axios from "axios";
 
 export const api = axios.create({
@@ -29,7 +28,7 @@ export const fetchDishes = ({
     if (limit !== null && limit !== undefined) params.limit = limit;
     if (categoryId !== null && categoryId !== undefined) params.categoryId = categoryId;
 
-    return api.get("/dishes", {
+    return api.get("/menu-items", {
         params,
     });
 };

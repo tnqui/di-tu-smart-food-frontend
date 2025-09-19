@@ -1,7 +1,7 @@
-import {Category, DeliveryMethods} from "@/types/types";
 import {create} from "zustand";
 import {persist} from "zustand/middleware";
 import {fetchCategories, fetchDeliveryMethods} from "@/lib/api";
+import {Category, DeliveryMethods} from "@/types/api";
 
 
 const ALL_CATEGORY: Category = {

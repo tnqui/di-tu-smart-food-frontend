@@ -9,12 +9,11 @@ export default function Shipper() {
             <motion.div
                 className="absolute bottom-0"
                 initial={{x: "-150px", rotateY: 0}}
-                animate={{x: "100vw", rotateY: [0, 0, 180]}}
+                animate={{x: "100vw"}}
                 transition={{
                     duration: 5,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "linear",
+                    repeat: Infinity, // Lặp lại vô hạn
+                    ease: "linear",   // Chạy đều
                 }}
             >
                 <motion.div

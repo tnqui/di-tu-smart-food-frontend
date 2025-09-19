@@ -22,12 +22,9 @@ export default function Home() {
 
                 <div className="flex gap-4 justify-center">
                     <Button asChild size="lg">
-                        <Link href="/menu">Xem Menu</Link>
+                        <Link href="/menu">Gọi Món Ngay</Link>
                     </Button>
-                    <AuthModal/>
                 </div>
-                <span className={"text-muted-foreground"}>Chưa có tài khoản? <Link className={"hover:text-green-600"}
-                                                                                   href={"/register"}>Đăng ký ngay</Link></span>
             </div>
         </div>
     );

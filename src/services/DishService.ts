@@ -14,7 +14,7 @@ export const dishService = {
         if (size) params.size = size;
         if (categoryId) params.categoryId = categoryId;
 
-        return api.get(`/dishes`, {params})
+        return api.get(`/menu-items`, {params})
 
     }
 };
